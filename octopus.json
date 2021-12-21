@@ -42,7 +42,7 @@
         },
         {
           "type": "copy",
-          "src": "./node_modules/@ionic/core/dist/css",
+          "src": "./node_modules/@ionic/core/css",
           "target": "./loader/assets/ionic/css",
           "options": {
             "overwrite": true
