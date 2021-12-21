@@ -17,7 +17,6 @@ function exportModules() {
     const tsProject = ts.createProject('tsconfig.json', Object.assign({}, tsOptions, {module: "umd"}));
     const files = ['src/**/*.ts'];
     return src(files)
-        .pipe(expect(files))
         .pipe(sourcemaps.init())
         .pipe(tsProject())
         .pipe(babel({
