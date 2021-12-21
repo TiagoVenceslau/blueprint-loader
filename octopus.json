@@ -88,7 +88,7 @@
         },
         {
           "type": "copy",
-          "src": "./node_modules/@tvenceslau/dsu-blueprint/dist/esm/index.bundle.min.esm.js",
+          "src": "./node_modules/@tvenceslau/dsu-blueprint/dist/core/esm/index.bundle.min.esm.js",
           "target": "./loader/bundles/dsu-blueprint.esm.js",
           "options": {
             "overwrite": true
@@ -96,7 +96,7 @@
         },
         {
           "type": "copy",
-          "src": "./node_modules/@tvenceslau/dsu-blueprint/dist/index.bundle.min.js",
+          "src": "./node_modules/@tvenceslau/dsu-blueprint/dist/core/index.bundle.min.js",
           "target": "./loader/bundles/dsu-blueprint.js",
           "options": {
             "overwrite": true
@@ -120,16 +120,8 @@
         },
         {
           "type": "copy",
-          "src": "./node_modules/@tvenceslau/ui-decorators-web/dist/esm/index.bundle.min.esm.js",
-          "target": "./loader/bundles/ui-decorators-web.esm.js",
-          "options": {
-            "overwrite": true
-          }
-        },
-        {
-          "type": "copy",
-          "src": "./node_modules/@tvenceslau/ui-decorators-web/dist/index.bundle.min.js",
-          "target": "./loader/bundles/ui-decorators-web.js",
+          "src": "./node_modules/@tvenceslau/ui-decorators-web/dist/ui-decorators-web",
+          "target": "./loader/bundles/ui-decorators-web",
           "options": {
             "overwrite": true
           }
