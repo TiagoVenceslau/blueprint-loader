@@ -1,0 +1,68 @@
+{
+  "name": "@tvenceslau/blueprint-loader",
+  "version": "0.0.3",
+  "description": "Blueprint Trust Loader for Distributed Applications",
+  "main": "./dist/index.min.js",
+  "module": "./dist/esm/index.min.esm.js",
+  "scripts": {
+    "start:dev": "nodemon",
+    "start": "npm run build && node lib/index.js",
+    "build": "rimraf ./lib && tsc",
+    "build:prod": "rimraf ./lib && tsc && npm run minify",
+    "build:loader": "npm run build:prod && node ./node_modules/octopus/scripts/run build",
+    "minify": "npm install gulp gulp-babel gulp-rename gulp-concat gulp-sourcemaps gulp-typescript gulp-expect-file gulp-uglify @babel/preset-env && npx gulp && npm uninstall gulp gulp-babel gulp-expect-file gulp-rename gulp-sourcemaps gulp-typescript gulp-uglify gulp-concat",
+    "test": "jest --coverage",
+    "prepare-release": "npm run build:prod && npm run docs",
+    "release": "./bin/tag-release.sh",
+    "clean-publish": "npx clean-publish",
+    "coverage": "npm test && npm install jest-coverage-badges && jest-coverage-badges --input \"./workdocs/coverage/coverage-summary.json\" --output \"./workdocs/badges\" && npm uninstall jest-coverage-badges",
+    "docs": "npx rimraf ./docs/* && cp -r ./workdocs/assets ./docs/assets && npm install better-docs taffydb && npx markdown-include ./mdCompile.json && npx jsdoc -c jsdocs.json -t ./node_modules/better-docs && cd docs && npm remove better-docs taffydb"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TiagoVenceslau/blueprint-loader.git"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "keywords": [
+    "OpenDSU",
+    "Typescript",
+    "Javascript",
+    "Blueprint",
+    "Build",
+    "Engine",
+    "Decorator",
+    "dApp"
+  ],
+  "author": "TiagoVenceslau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TiagoVenceslau/blueprint-loader/issues"
+  },
+  "homepage": "https://github.com/TiagoVenceslau/blueprint-loader#readme",
+  "devDependencies": {
+    "@tvenceslau/decorator-validation": "latest",
+    "@tvenceslau/db-decorators": "latest",
+    "@tvenceslau/dsu-blueprint": "latest",
+    "@tvenceslau/ui-decorators": "latest",
+    "@tvenceslau/ui-decorators-web": "latest",
+    "@tvenceslau/trust-loader": "latest",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-typescript": "^7.16.5",
+    "@ionic/core": "^6.0.1",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.0.1",
+    "jest": "^27.0.6",
+    "jsdoc": "^3.6.7",
+    "markdown-include": "^0.4.3",
+    "nodemon": "^2.0.10",
+    "octopus": "git+https://github.com/PrivateSky/octopus.git",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {}
+}

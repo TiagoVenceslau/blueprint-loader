@@ -1,0 +1,70 @@
+{
+  "workDir": ".",
+  "dependencies": [
+    {
+      "name": "Workbox-cli Install (globally)",
+      "src": "",
+      "description": "the dev dependencies break cardinal build",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "npm install -g workbox-cli"
+        }
+      ]
+    }
+  ],
+  "build": [
+    {
+      "name": "PSK bundles",
+      "src": "",
+      "actions": [
+        {
+          "type": "copy",
+          "src": "../privatesky/psknode/bundles/swBoot.js",
+          "target": "./loader/swBoot.js",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "../privatesky/psknode/bundles/webshims.js",
+          "target": "./loader/bundles/webshims.js",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "../privatesky/psknode/bundles/loaderBoot.js",
+          "target": "./loader/bundles/loaderBoot.js",
+          "options": {
+            "overwrite": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "Copy Loader Bundle",
+      "src": "",
+      "actions": [
+        {
+          "type": "copy",
+          "src": "./dist/esm/index.bundle.min.esm.js",
+          "target": "./loader/bundles/trust-loader.esm.js",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "./dist/index.bundle.min.js",
+          "target": "./loader/bundles/trust-loader.js",
+          "options": {
+            "overwrite": true
+          }
+        }
+      ]
+    }
+  ]
+}
